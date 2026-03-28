@@ -1,0 +1,39 @@
+[project]
+name = "aibim"
+version = "0.1.0"
+description = "AIBIM SDK — Route LLM traffic through AI security proxy"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+keywords = ["llm", "security", "proxy", "ai", "aibim"]
+
+[project.urls]
+Repository = "https://github.com/aibim-ai/python-sdk"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+dependencies = [
+    "httpx>=0.25",
+    "pydantic>=2.0",
+    "websockets>=12.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.20"]
+all = ["openai>=1.0", "anthropic>=0.20"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aibim"]
